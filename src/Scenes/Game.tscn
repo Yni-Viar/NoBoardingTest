@@ -1,0 +1,210 @@
+[gd_scene load_steps=17 format=3 uid="uid://mu7j26by23js"]
+
+[ext_resource type="Script" path="res://Scripts/GameCore.gd" id="1_w6bkb"]
+[ext_resource type="Resource" uid="uid://dtootndbrxot5" path="res://Scripts/GameData/gamedata.tres" id="2_w817j"]
+[ext_resource type="Texture2D" uid="uid://dytgmrs4piqfo" path="res://Assets/HUD/healthbar_unfilled.png" id="5_efy6m"]
+[ext_resource type="Environment" uid="uid://cpjkvy5s2l8ae" path="res://DefaultGraphics.tres" id="5_u1dtw"]
+[ext_resource type="Texture2D" uid="uid://b5pka5jiu0eq6" path="res://Assets/HUD/healthbar_filled.png" id="6_r1ne8"]
+[ext_resource type="Texture2D" uid="uid://bmw4fxmnmwhov" path="res://Assets/HUD/arrow.png" id="7_bwdaw"]
+[ext_resource type="Script" path="res://Scripts/UI/PlayerUI.gd" id="8_7mmlb"]
+[ext_resource type="PackedScene" uid="uid://btxos7vrganqb" path="res://Assets/OriginalModels/statue.tscn" id="9_l1euh"]
+[ext_resource type="PackedScene" uid="uid://brw1pbnyucy41" path="res://DynamicObjects/ActionItems/godotplush.tscn" id="10_v0u74"]
+[ext_resource type="PackedScene" uid="uid://boagqr42vbikv" path="res://InventorySystem/Items/Pickup/sugar_milk.tscn" id="11_dbhp8"]
+[ext_resource type="Script" path="res://Scripts/FPSCounter.gd" id="11_vy51m"]
+[ext_resource type="PackedScene" uid="uid://o6rnnciwmwvn" path="res://GDsh/InGameConsole.tscn" id="13_30ago"]
+[ext_resource type="PackedScene" uid="uid://d2nh6ltmqe2jb" path="res://Assets/Locations/station_loop.tscn" id="13_howbv"]
+[ext_resource type="Texture2D" uid="uid://dj66rmlusn18r" path="res://Assets/HUD/healthbar.png" id="15_5ah0v"]
+
+[sub_resource type="Animation" id="Animation_4tulc"]
+resource_name = "music_change"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o7fn3"]
+_data = {
+"music_change": SubResource("Animation_4tulc")
+}
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_w6bkb")
+game_data = ExtResource("2_w817j")
+
+[node name="PlayerUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_7mmlb")
+
+[node name="Cursor" type="TextureRect" parent="PlayerUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_bwdaw")
+
+[node name="HealthBarIcon" type="TextureRect" parent="PlayerUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015
+anchor_top = 0.974
+anchor_right = 0.015
+anchor_bottom = 0.974
+offset_left = -12.8
+offset_top = -11.92
+offset_right = 11.2
+offset_bottom = 12.08
+grow_vertical = 0
+texture = ExtResource("15_5ah0v")
+
+[node name="HealthBar" type="TextureProgressBar" parent="PlayerUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.029
+anchor_top = 0.963
+anchor_right = 0.171
+anchor_bottom = 0.985
+offset_left = 0.32
+offset_top = -0.0400391
+offset_right = -0.320007
+offset_bottom = 0.199951
+grow_vertical = 0
+allow_greater = true
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 8
+stretch_margin_bottom = 8
+texture_under = ExtResource("5_efy6m")
+texture_progress = ExtResource("6_r1ne8")
+
+[node name="Counter" type="Label" parent="PlayerUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 26.0
+text = "FPS"
+script = ExtResource("11_vy51m")
+
+[node name="BossContainer" type="VBoxContainer" parent="PlayerUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_right = 320.0
+offset_bottom = 256.0
+grow_horizontal = 2
+
+[node name="PauseMenu" type="Control" parent="PlayerUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="PlayerUI/PauseMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.237
+anchor_bottom = 1.0
+offset_right = 0.959961
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ExitButton" type="Button" parent="PlayerUI/PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.491
+anchor_top = 0.089
+anchor_right = 0.491
+anchor_bottom = 0.089
+offset_left = -191.896
+offset_top = -32.12
+offset_right = 192.104
+offset_bottom = 31.88
+text = "Exit"
+
+[node name="DevWarning" type="Label" parent="PlayerUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -634.5
+offset_top = -96.0
+offset_right = 634.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "PRERELEASE_WARN"
+horizontal_alignment = 1
+
+[node name="Items" type="Node" parent="."]
+
+[node name="MapObjects" type="Node" parent="."]
+
+[node name="Ragdolls" type="Node3D" parent="."]
+
+[node name="NPCs" type="Node" parent="."]
+
+[node name="Statue" parent="NPCs" instance=ExtResource("9_l1euh")]
+transform = Transform3D(0.142525, 0, 0.989791, 0, 1, 0, -0.989791, 0, 0.142525, 9.07277, 5.19746, -28.2874)
+
+[node name="godotplush" parent="NPCs" instance=ExtResource("10_v0u74")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22973, 4.16173, -28.004)
+
+[node name="SugarMilk" parent="NPCs" instance=ExtResource("11_dbhp8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.74869, 4.25237, -27.7677)
+
+[node name="Decals" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.662672, 0.74891, 0, -0.74891, 0.662672, 0, 0, 0)
+light_color = Color(0.28485, 0.28485, 0.28485, 1)
+shadow_enabled = true
+directional_shadow_max_distance = 200.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5_u1dtw")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="InGameConsole" parent="." instance=ExtResource("13_30ago")]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o7fn3")
+}
+
+[node name="entityspawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.454428, 3.25691, -22.418)
+
+[node name="Station_Loop" parent="." instance=ExtResource("13_howbv")]
+
+[connection signal="pressed" from="PlayerUI/PauseMenu/Panel/ExitButton" to="PlayerUI" method="_on_exit_button_pressed"]

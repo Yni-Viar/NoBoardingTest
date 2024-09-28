@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cng124dkivu8h"]
+
+[ext_resource type="Texture2D" uid="uid://b2ov7gf17t8hq" path="res://Assets/OriginalModels/NoBoarding/Cube_edit.png" id="1_6o2m3"]
+[ext_resource type="Texture2D" uid="uid://dem3u5vyo8bfp" path="res://Assets/OriginalModels/NoBoarding/Cube_edit_emission.png" id="2_dy2j4"]
+
+[resource]
+resource_name = "Posadkinet"
+cull_mode = 2
+albedo_texture = ExtResource("1_6o2m3")
+roughness = 0.5
+emission_enabled = true
+emission_texture = ExtResource("2_dy2j4")

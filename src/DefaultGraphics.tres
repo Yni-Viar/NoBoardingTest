@@ -1,0 +1,15 @@
+[gd_resource type="Environment" format=3 uid="uid://cpjkvy5s2l8ae"]
+
+[resource]
+background_mode = 1
+background_color = Color(0.130093, 0.14535, 0.16909, 1)
+ambient_light_sky_contribution = 0.28
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_white = 12.0
+ssr_max_steps = 16
+glow_enabled = true
+glow_bloom = 1.0
+fog_enabled = true
+fog_mode = 1
+fog_density = 1.0

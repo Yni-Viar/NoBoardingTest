@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://j365nkikntou"]
+
+[ext_resource type="Theme" uid="uid://4k2un7nm7xc6" path="res://UITheme.tres" id="1_oiqdq"]
+[ext_resource type="Script" path="res://Scripts/IngameWindow.gd" id="2_3um4j"]
+
+[node name="PopUp" type="Window"]
+position = Vector2i(32, 64)
+theme = ExtResource("1_oiqdq")
+script = ExtResource("2_3um4j")
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

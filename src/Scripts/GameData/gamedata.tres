@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=3 format=3 uid="uid://dtootndbrxot5"]
+
+[ext_resource type="Script" path="res://Scripts/GameData/GameData.gd" id="1_d6yh1"]
+[ext_resource type="Resource" uid="uid://cx3mfrt7tu4ab" path="res://InventorySystem/Items/SugarMilk.tres" id="1_velt5"]
+
+[resource]
+script = ExtResource("1_d6yh1")
+items = Array[Resource("res://InventorySystem/Items/Item.gd")]([ExtResource("1_velt5")])

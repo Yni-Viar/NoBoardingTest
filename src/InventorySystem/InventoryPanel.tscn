@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://de8sgghqvldw3"]
+
+[ext_resource type="Script" path="res://InventorySystem/InventoryManagement.gd" id="1_yykdm"]
+[ext_resource type="Script" path="res://InventorySystem/InventoryDock.gd" id="4_2xcnr"]
+[ext_resource type="Script" path="res://InventorySystem/InventoryPanel.gd" id="4_ss8mb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0ko6"]
+bg_color = Color(0, 0, 0, 0.752941)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_yykdm")
+
+[node name="InventoryPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.667
+anchor_top = 0.237
+anchor_right = 0.667
+anchor_bottom = 0.237
+offset_left = -200.64
+offset_top = -199.96
+offset_right = 199.36
+offset_bottom = 200.04
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i0ko6")
+script = ExtResource("4_ss8mb")
+
+[node name="DockPanel" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.667
+anchor_top = 0.652
+anchor_right = 0.667
+anchor_bottom = 0.652
+offset_left = -192.64
+offset_top = -192.16
+offset_right = 191.36
+offset_bottom = 191.84
+color = Color(0, 0, 0, 1)
+script = ExtResource("4_2xcnr")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.838
+anchor_top = 0.233
+anchor_right = 0.838
+anchor_bottom = 0.233
+offset_left = -64.9601
+offset_top = -11.64
+offset_right = 64.0399
+offset_bottom = 11.36
+grow_horizontal = 2
+grow_vertical = 2
+text = "Your inventory"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.833
+anchor_top = 0.663
+anchor_right = 0.833
+anchor_bottom = 0.663
+offset_left = -63.3601
+offset_top = -12.04
+offset_right = 64.6399
+offset_bottom = 11.96
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loot"
+horizontal_alignment = 1

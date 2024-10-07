@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+ResourceStorage="*res://Scripts/ResourceStorage.gd"
 GDsh="*res://GDsh/GDsh.gd"
 Settings="*res://Scripts/Settings.gd"
 

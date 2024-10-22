@@ -1,0 +1,11 @@
+Redot plush 3D model.
+Copyright (c) 2024 Yni Viar
+
+This work is licensed under the Creative Commons Attribution 4.0 International
+license (CC BY 4.0 International): https://creativecommons.org/licenses/by/4.0/
+
+Based on: Redot Engine Logo
+Copyright (c) 2024 Asrorul Irsyad
+
+This work is licensed under the Creative Commons Attribution 4.0 International
+license (CC BY 4.0 International): https://creativecommons.org/licenses/by/4.0/

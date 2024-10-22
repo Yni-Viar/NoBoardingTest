@@ -56,6 +56,7 @@ radius = 0.130293
 [node name="godotplush" type="RigidBody3D"]
 
 [node name="godot_plush_sitted" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 mesh = SubResource("ArrayMesh_i8y3o")
 skeleton = NodePath("")
 

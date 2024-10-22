@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://mu7j26by23js"]
+[gd_scene load_steps=19 format=3 uid="uid://mu7j26by23js"]
 
 [ext_resource type="Script" path="res://Scripts/GameCore.gd" id="1_w6bkb"]
 [ext_resource type="Resource" uid="uid://dtootndbrxot5" path="res://Scripts/GameData/gamedata.tres" id="2_w817j"]
@@ -8,12 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://bmw4fxmnmwhov" path="res://Assets/HUD/arrow.png" id="7_bwdaw"]
 [ext_resource type="Script" path="res://Scripts/UI/PlayerUI.gd" id="8_7mmlb"]
 [ext_resource type="PackedScene" uid="uid://btxos7vrganqb" path="res://Assets/OriginalModels/statue.tscn" id="9_l1euh"]
-[ext_resource type="PackedScene" uid="uid://brw1pbnyucy41" path="res://DynamicObjects/ActionItems/godotplush.tscn" id="10_v0u74"]
 [ext_resource type="PackedScene" uid="uid://boagqr42vbikv" path="res://InventorySystem/Items/Pickup/sugar_milk.tscn" id="11_dbhp8"]
 [ext_resource type="Script" path="res://Scripts/FPSCounter.gd" id="11_vy51m"]
 [ext_resource type="PackedScene" uid="uid://o6rnnciwmwvn" path="res://GDsh/InGameConsole.tscn" id="13_30ago"]
 [ext_resource type="PackedScene" uid="uid://d2nh6ltmqe2jb" path="res://Assets/Locations/station_loop.tscn" id="13_howbv"]
 [ext_resource type="Texture2D" uid="uid://dj66rmlusn18r" path="res://Assets/HUD/healthbar.png" id="15_5ah0v"]
+[ext_resource type="PackedScene" uid="uid://brw1pbnyucy41" path="res://DynamicObjects/ActionItems/omnidotplush.tscn" id="15_gefjq"]
+[ext_resource type="PackedScene" uid="uid://duucxihgv8qje" path="res://DynamicObjects/ActionItems/redotplush.tscn" id="16_jmdxw"]
+[ext_resource type="PackedScene" uid="uid://brw1pbnyucy41" path="res://DynamicObjects/ActionItems/godotplush.tscn" id="16_xfvho"]
 
 [sub_resource type="Animation" id="Animation_4tulc"]
 resource_name = "music_change"
@@ -174,11 +176,8 @@ horizontal_alignment = 1
 [node name="Statue" parent="NPCs" instance=ExtResource("9_l1euh")]
 transform = Transform3D(0.142525, 0, 0.989791, 0, 1, 0, -0.989791, 0, 0.142525, 9.07277, 5.19746, -28.2874)
 
-[node name="godotplush" parent="NPCs" instance=ExtResource("10_v0u74")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22973, 4.16173, -28.004)
-
 [node name="SugarMilk" parent="NPCs" instance=ExtResource("11_dbhp8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.74869, 4.25237, -27.7677)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.30718, 4.25237, -27.7677)
 
 [node name="Decals" type="Node3D" parent="."]
 
@@ -206,5 +205,14 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.454428, 3.25691, -22.418)
 
 [node name="Station_Loop" parent="." instance=ExtResource("13_howbv")]
+
+[node name="omnidotplush" parent="." instance=ExtResource("15_gefjq")]
+transform = Transform3D(0.00500911, 0, 0.999987, 0, 1, 0, -0.999987, 0, 0.00500911, 8.10405, 4.14775, -28.0213)
+
+[node name="Redotplush" parent="." instance=ExtResource("16_jmdxw")]
+transform = Transform3D(0.0746481, 0, 0.99721, 0, 1, 0, -0.99721, 0, 0.0746481, 7.82137, 4.18936, -27.8087)
+
+[node name="godotplush" parent="." instance=ExtResource("16_xfvho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45655, 4.14309, -27.8309)
 
 [connection signal="pressed" from="PlayerUI/PauseMenu/Panel/ExitButton" to="PlayerUI" method="_on_exit_button_pressed"]
